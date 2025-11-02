@@ -1,0 +1,43 @@
+version: '3.8'
+
+
+services:
+  postgres:
+    image: postgres:17
+    container_name: postgres
+    environment:
+      POSTGRES_USER: hchaguer
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: piscineds
+    restart: always
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U hchaguer -d piscineds"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    ports:
+      - "5432:5432"
+    volumes:
+      - dw_pgdata:/var/lib/postgresql/data
+    networks:
+      - dw_network
+
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: dw_pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: hchaguer@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: 123
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    restart: always
+    networks:
+      - dw_network
+
+volumes:
+  dw_pgdata:
+
+networks:
+  dw_network:

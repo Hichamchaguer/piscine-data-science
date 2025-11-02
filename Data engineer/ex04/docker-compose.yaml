@@ -1,0 +1,59 @@
+version:  '3.8'
+
+services:
+  postgres:
+    image: postgres:17
+    container_name: my_postgres
+    environment:
+      POSTGRES_USER: hchaguer
+      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_DB: piscineds
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U hchaguer -d piscineds"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    ports:
+      - "5432:5432"
+    volumes:
+      - pgdata:/var/lib/postgresql/data
+    networks:
+      - my_network
+
+  python-runner:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: python_runner
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      POSTGRES_HOST: postgres
+      POSTGRES_DB: piscineds
+      POSTGRES_USER: hchaguer
+      POSTGRES_PASSWORD: mysecretpassword
+    volumes:
+      - ./item:/app/item
+    networks:
+      - my_network
+  
+  pgadmin:
+    image: dpage/pgadmin4
+    container_name: pgadmin
+    environment:
+      PGADMIN_DEFAULT_EMAIL: hchaguer@gmail.com
+      PGADMIN_DEFAULT_PASSWORD: 123
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    restart: always
+    networks:
+      - my_network
+
+volumes:
+  pgdata:
+
+networks:
+  my_network:
