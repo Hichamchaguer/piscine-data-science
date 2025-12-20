@@ -1,5 +1,4 @@
-CREATE TABLE IF NOT EXISTS customers (
-    
+CREATE TABLE IF NOT EXISTS customers AS
     SELECT * FROM data_2022_oct
     UNION ALL
     SELECT * FROM data_2022_nov
@@ -8,5 +7,4 @@ CREATE TABLE IF NOT EXISTS customers (
     UNION ALL
     SELECT * FROM data_2023_jan
     UNION ALL
-    SELECT * FROM data_2023_feb
-);
+    SELECT * FROM data_2023_feb;
