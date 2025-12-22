@@ -84,4 +84,4 @@ def create_table(path, table_name):
 
 if __name__ == "__main__":
         # Now proceed with table creation
-    create_table("/app/customer/data_2022_oct.csv", "data_2022_oct")
+    create_table("/app/customer/data_2023_feb.csv", "data_2023_feb")

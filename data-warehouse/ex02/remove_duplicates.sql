@@ -8,4 +8,4 @@ TRUNCATE TABLE customers;
 INSERT INTO customers SELECT * FROM temp;
 
 -- drop the temp table
-TRUNCATE TABLE temp;
+DROP TABLE temp;

@@ -18,27 +18,27 @@ services:
     ports:
       - "5432:5432"
     volumes:
-      - dw_pgdata:/var/lib/postgresql/data
+      - pdgdata:/var/lib/postgresql/data
     networks:
       - dw_network
 
-  python-runner:
-    build:
-      context: ../..
-      dockerfile: data-warehouse/ex00/Dockerfile
-    container_name: python_runner
-    depends_on:
-      postgres:
-        condition: service_healthy
-    environment:
-      POSTGRES_HOST: postgres
-      POSTGRES_DB: piscineds
-      POSTGRES_USER: hchaguer
-      POSTGRES_PASSWORD: mysecretpassword
-    volumes:
-      - ./script:/app/script
-    networks:
-      - dw_network
+  # python-runner:
+  #   build:
+  #     context: ../..
+  #     dockerfile: data-warehouse/ex00/Dockerfile
+  #   container_name: python_runner
+  #   depends_on:
+  #     postgres:
+  #       condition: service_healthy
+  #   environment:
+  #     POSTGRES_HOST: postgres
+  #     POSTGRES_DB: piscineds
+  #     POSTGRES_USER: hchaguer
+  #     POSTGRES_PASSWORD: mysecretpassword
+  #   volumes:
+  #     - ./script:/app/script
+  #   networks:
+  #     - dw_network
 
   pgadmin:
     image: dpage/pgadmin4
@@ -55,7 +55,13 @@ services:
       - dw_network
 
 volumes:
-  dw_pgdata:
+  pdgdata:
+    name: pdgdata
+    driver: local
+    driver_opts:
+      type: none
+      device: /Users/hchaguer/data/postgres_data
+      o: bind
 
 networks:
   dw_network:

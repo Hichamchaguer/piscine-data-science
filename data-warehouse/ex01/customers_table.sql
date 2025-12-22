@@ -7,4 +7,4 @@ CREATE TABLE IF NOT EXISTS customers AS
     UNION ALL
     SELECT * FROM data_2023_jan
     UNION ALL
-    SELECT * FROM data_2023_feb;
+    SELECT * FROM data_2023_feb

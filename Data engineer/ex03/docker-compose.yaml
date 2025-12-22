@@ -20,23 +20,23 @@ services:
     networks:
       - my_network
 
-  python-runner:
-    build:
-      context: .
-      dockerfile: Dockerfile
-    container_name: python_runner
-    depends_on:
-      postgres:
-        condition: service_healthy
-    environment:
-      POSTGRES_HOST: postgres
-      POSTGRES_DB: piscineds
-      POSTGRES_USER: hchaguer
-      POSTGRES_PASSWORD: mysecretpassword
-    volumes:
-      - ./item:/app/item
-    networks:
-      - my_network
+  # python-runner:
+  #   build:
+  #     context: .
+  #     dockerfile: Dockerfile
+  #   container_name: python_runner
+  #   depends_on:
+  #     postgres:
+  #       condition: service_healthy
+  #   environment:
+  #     POSTGRES_HOST: postgres
+  #     POSTGRES_DB: piscineds
+  #     POSTGRES_USER: hchaguer
+  #     POSTGRES_PASSWORD: mysecretpassword
+  #   volumes:
+  #     - ./item:/app/item
+  #   networks:
+  #     - my_network
   
   pgadmin:
     image: dpage/pgadmin4
@@ -54,6 +54,12 @@ services:
 
 volumes:
   pgdata:
+    name: pgdata
+    driver: local
+    driver_opts:
+      type: none
+      device: /Users/hchaguer/data/postgres_data
+      o: bind
 
 networks:
   my_network:
