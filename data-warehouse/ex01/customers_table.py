@@ -27,7 +27,7 @@ def load():
     try:
         # read the sql file
         print("Reading SQL file...", flush=True)
-        with open("fusion.sql", 'r') as file:
+        with open("customers_table.sql", 'r') as file:
             sql_commands = file.read()
         print("SQL file read successfully", flush=True)
         

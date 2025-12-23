@@ -1,4 +1,3 @@
-SELECT event_type, COUNT(5) FROM costomers
+SELECT event_type, COUNT(*) as count FROM customers
 GROUP BY event_type
-ORDER BY price DESC
-LIMIT 5;
+ORDER BY count DESC

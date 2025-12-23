@@ -1,10 +1,12 @@
 import psycopg2
+import matplotlib
+matplotlib.use("Agg")
 import matplotlib.pyplot as plt
 
 DB_NAME = "piscineds"
 DB_USER = "hchaguer"
-DB_PASSWORD = "password"
-DB_HOST = "localhost"   
+DB_PASSWORD = "mysecretpassword"
+DB_HOST = "postgres"   
 DB_PORT = "5432"
 
 def connect():
@@ -24,28 +26,38 @@ def connect():
 
 def fetch_data():
     try:
+        print("Reading SQL file pie.sql ...", flush=True)
         with open("pie.sql", "r") as file:
             request = file.read()
-        print("SQL Request fetched successfully.")
         # cnx to db
         cnx = connect()
         if cnx is None:
+            print("Connection to the database failed", flush=True)
             return None
+        print("SQL Request fetched successfully.", flush=True)
         # call cursor
         cursor = cnx.cursor()
         # execute the request
         cursor.execute(request)
-        print("SQL Request executed successfully.")
+        print("SQL Request executed successfully.", flush=True)
         # fetch the data
         data = cursor.fetchall()
-        print("Data fetched successfully.")
+        print(data)
+        print("Data fetched successfully.", flush=True)
         event, count = zip(*data)
         # put data in a pie chart
+        plt.figure(figsize=(6, 6))
         plt.pie(count, labels=event, autopct='%1.1f%%', startangle=140, shadow=True)
-        plt.show()
+        # Save into the mounted 'script' folder so it's visible on the host
+        plt.savefig("script/pie_chart.png", format="png")
+        plt.close()
 
         cursor.close()
         cnx.close()
     except Exception as e:
-        print(f"Error fetching data: {e}")
+        print(f"Error fetching data: {e}", flush=True)
         return None
+
+
+if __name__ == "__main__":
+    fetch_data()
