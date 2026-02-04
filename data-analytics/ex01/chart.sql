@@ -1,5 +1,5 @@
-SELECT event_time, event_type, COUNT(*) AS event_count
-FROM costumers
+SELECT event_time, event_type, COUNT(*) AS purchase_count
+FROM customers
 WHERE event_type = 'purchase'
 AND event_time >= '2022-10-01'
 AND event_time < '2023-03-01'

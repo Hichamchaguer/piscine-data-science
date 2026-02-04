@@ -42,13 +42,14 @@ def fetch_data():
         print("SQL Request executed successfully.", flush=True)
         # fetch the data
         data = cursor.fetchall()
-        print(data)
         print("Data fetched successfully.", flush=True)
         event, count = zip(*data)
+        print(f"Event types: {event}", flush=True)
+        print(f"Counts: {count}", flush=True)
         # put data in a pie chart
         plt.figure(figsize=(6, 6))
         plt.pie(count, labels=event, autopct='%1.1f%%', startangle=140, shadow=True)
-        # Save into the mounted 'script' folder so it's visible on the host
+        # Save into the mounted 'visualisation' folder so it's visible on the host
         plt.savefig("script/pie_chart.png", format="png")
         plt.close()
 
