@@ -19,7 +19,7 @@ def connect():
         print("Connection to the database was successful", flush=True)
         return cnx
     except Exception as error:
-        print(f"An error occurred while connecting to the database: {error}", flush=True, file=sys.stderr)
+        print(f"An error occurred while connecting to the database: {error}", flush=True)
         return None
 
 
@@ -34,7 +34,7 @@ def load():
         # call connect function
         cnx = connect()
         if cnx is None:
-            print("Connection to the database failed", flush=True, file=sys.stderr)
+            print("Connection to the database failed", flush=True)
             sys.exit(1)
         
         # execute the sql commands
@@ -49,13 +49,13 @@ def load():
         cursor.close()
         cnx.close()
     except FileNotFoundError as error:
-        print(f"File not found error: {error}", flush=True, file=sys.stderr)
+        print(f"File not found error: {error}", flush=True)
         sys.exit(1)
     except psycopg2.Error as error:
-        print(f"PostgreSQL error: {error}", flush=True, file=sys.stderr)
+        print(f"PostgreSQL error: {error}", flush=True)
         sys.exit(1)
     except Exception as error:
-        print(f"An error occurred: {error}", flush=True, file=sys.stderr)
+        print(f"An error occurred: {error}", flush=True)
         import traceback
         traceback.print_exc()
         sys.exit(1)

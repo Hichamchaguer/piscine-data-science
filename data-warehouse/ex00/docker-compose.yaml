@@ -7,7 +7,7 @@ services:
     container_name: postgres
     environment:
       POSTGRES_USER: hchaguer
-      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_PASSWORD: "mysecretpassword"
       POSTGRES_DB: piscineds
     restart: always
     healthcheck:
@@ -34,9 +34,9 @@ services:
       POSTGRES_HOST: postgres
       POSTGRES_DB: piscineds
       POSTGRES_USER: hchaguer
-      POSTGRES_PASSWORD: mysecretpassword
+      POSTGRES_PASSWORD: 123
     volumes:
-      - ./script:/app/script
+      - .:/app/script
     networks:
       - dw_network
 

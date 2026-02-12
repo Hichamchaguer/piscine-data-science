@@ -7,13 +7,13 @@ WORKDIR /app
 # Copy Python script and SQL file
 # COPY ./data-warehouse/ex01/customers_table.py .
 # COPY ./data-warehouse/ex01/customers_table.sql .
-# COPY ./data-warehouse/ex02/remove_duplicated.py .
-# COPY ./data-warehouse/ex02/remove_duplicates.sql .
-COPY ./data-warehouse/ex03/fusion.py .
-COPY ./data-warehouse/ex03/fusion.sql .
+COPY ./data-warehouse/ex02/remove_duplicated.py .
+COPY ./data-warehouse/ex02/remove_duplicates.sql .
+# COPY ./data-warehouse/ex03/fusion.py .
+# COPY ./data-warehouse/ex03/fusion.sql .
 
 # Install dependencies
-RUN pip install --no-cache-dir psycopg2-binary pandas
+RUN pip install --no-cache-dir psycopg2-binary
 
 # Run script
-CMD ["python", "fusion.py"]
+CMD ["python", "remove_duplicated.py"]
