@@ -1,3 +1,4 @@
+drop table if exists customers;
 CREATE TABLE IF NOT EXISTS customers AS
     SELECT * FROM data_2022_oct
     UNION ALL
