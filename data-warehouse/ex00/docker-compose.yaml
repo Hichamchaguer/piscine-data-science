@@ -50,7 +50,7 @@ services:
       - "5050:80"
     depends_on:
       - postgres
-    restart: always
+    restart: unless-stopped
     networks:
       - dw_network
 

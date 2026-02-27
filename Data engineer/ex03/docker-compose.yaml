@@ -34,7 +34,7 @@ services:
       POSTGRES_USER: hchaguer
       POSTGRES_PASSWORD: mysecretpassword
     volumes:
-      - ./item:/app/item
+      - .:/app/item
     networks:
       - my_network
   

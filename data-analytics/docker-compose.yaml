@@ -50,11 +50,20 @@ services:
       - "5050:80"
     depends_on:
       - postgres
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
     restart: always
     networks:
       - dw_network
 
 volumes:
+  pgadmin_data:
+    name: pgadmin_data
+    driver: local
+    driver_opts:
+      type: none
+      device: /Users/hchaguer/data/pgadmin_data
+      o: bind
   pdgdata:
     name: pdgdata
     driver: local

@@ -1,7 +1,7 @@
-SELECT event_time, event_type, COUNT(*) AS purchase_count
+SELECT DATE(event_time) as dayy, event_type, COUNT(*) AS purchase_count
 FROM customers
 WHERE event_type = 'purchase'
 AND event_time >= '2022-10-01'
 AND event_time < '2023-03-01'
-GROUP BY event_time, event_type
-ORDER BY event_time ASC;
+GROUP BY dayy, event_type
+ORDER BY dayy ASC;
