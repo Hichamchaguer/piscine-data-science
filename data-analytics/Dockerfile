@@ -13,10 +13,14 @@ COPY ./data-analytics/ex01/chart2.sql .
 COPY ./data-analytics/ex01/chart2.py .
 COPY ./data-analytics/ex01/chart4.sql .
 COPY ./data-analytics/ex01/chart4.py .
+COPY ./data-analytics/ex02/mustache.sql .
+COPY ./data-analytics/ex02/mustache.py .
+COPY ./data-analytics/ex02/mustache2.sql .
+COPY ./data-analytics/utils ./utils/
 
 
 # Install dependencies
-RUN pip install --no-cache-dir psycopg2-binary matplotlib
+RUN pip install --no-cache-dir psycopg2-binary matplotlib numpy
 
 # Run script
-CMD ["python", "chart4.py"]
+CMD ["python", "mustache.py"]
