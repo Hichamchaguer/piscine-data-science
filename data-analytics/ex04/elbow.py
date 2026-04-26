@@ -2,6 +2,7 @@ from sklearn.cluster import KMeans
 from sklearn.preprocessing import StandardScaler
 import matplotlib.pyplot as plt
 from utils.cnx import connect
+import numpy as np
 
 
 def clustring():
@@ -19,8 +20,9 @@ def clustring():
     cursor.close()
     cnx.close()
 
-    values = [row[1] for row in data]
-    x = [[value] for value in values]
+    freq = [row[0] for row in data]
+    x = np.array(freq).reshape(-1, 1)
+    print("Values retrieved from the database:", x, flush=True)
     scaler = StandardScaler()
     x_scaled = scaler.fit_transform(x)
     wcss = []
@@ -28,8 +30,9 @@ def clustring():
     for k in range(1, 10):
         kmeans = KMeans(n_clusters=k, random_state=0, n_init=10).fit(x_scaled)
         wcss.append(kmeans.inertia_)
+    print("WCSS values for k=1 to 10:", wcss, flush=True)
 
-    print("WCSS values for k=1 to 9:", wcss, flush=True)
+    # print("WCSS values for k=1 to 10:", wcss, flush=True)
     plt.plot(range(1, 10), wcss)
     plt.title('The elbow method')
     plt.xlabel('Number of clusters')

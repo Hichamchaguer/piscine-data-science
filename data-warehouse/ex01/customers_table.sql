@@ -8,9 +8,7 @@ CREATE TABLE IF NOT EXISTS customers AS
     UNION ALL
     SELECT * FROM data_2022_dec
     UNION ALL
-    SELECT * FROM data_2023_jan
-    UNION ALL
-    SELECT * FROM data_2023_feb;
+    SELECT * FROM data_2023_jan;
 
 DELETE FROM customers
 WHERE ctid IN (
@@ -40,7 +38,8 @@ WHERE ctid IN (
   ) t2
 );
 
-commit;ALTER TABLE customers
+commit;
+ALTER TABLE customers
 ADD COLUMN IF NOT EXISTS category_id bigint,
 ADD COLUMN IF NOT EXISTS category_code text,
 ADD COLUMN IF NOT EXISTS brand text;

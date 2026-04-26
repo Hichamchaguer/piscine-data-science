@@ -11,7 +11,7 @@ COPY script/table.py .
 COPY customer/ ./customer/
 
 # Install dependencies
-RUN pip install --no-cache-dir psycopg2-binary pandas
+RUN pip install --no-cache-dir psycopg2-binary
 
 # Run script
 CMD ["python", "table.py"]

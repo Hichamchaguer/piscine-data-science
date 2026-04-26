@@ -11,7 +11,7 @@ COPY items.py .
 COPY item/ ./item/
 
 # Install dependencies
-RUN pip install --no-cache-dir psycopg2-binary pandas
+RUN pip install --no-cache-dir psycopg2-binary
 
 # Run script
 CMD ["python", "items.py"]
