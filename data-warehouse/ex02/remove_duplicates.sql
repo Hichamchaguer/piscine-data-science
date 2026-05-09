@@ -22,6 +22,6 @@ WHERE ctid IN (
       FROM customers
     ) t1
     WHERE prev_time IS NOT NULL
-      AND event_time - prev_time <= INTERVAL '2 second'
+      AND event_time - prev_time <= INTERVAL '1 second'
   ) t2
 );
