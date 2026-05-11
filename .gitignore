@@ -1,4 +1,6 @@
 ex01/*.csv
     
+*.csv
 customer
 item
+.DS_Store
