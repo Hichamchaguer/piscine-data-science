@@ -31,7 +31,7 @@ try:
     event_colors = {'view': 'blue', 'purchase': 'red', 'remove_from_cart': 'green', 'cart': 'orange'}
     event_types, counts = zip(*data)
     plt.pie(counts, labels=[f"{event_type}" for event_type in event_types],
-            autopct='%1.1f%%', startangle=0, colors=[event_colors.get(event, 'gray') for event in event_types])
+            autopct='%1.1f%%', startangle=0, colors=[event_colors.get(event, 'gray') for event in event_types], explode=[0.01 for event in event_types])
     plt.axis('equal')
     plt.savefig("script/pie_chart.png", format="png")
 except Exception as e:

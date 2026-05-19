@@ -22,7 +22,7 @@ def load():
 
         price, event_time = zip(*data)
         count = len(data)
-        mean = np.mean(price)
+        std = np.std(price)
         median = np.median(price)
         min = np.min(price)
         max = np.max(price)
@@ -31,7 +31,7 @@ def load():
         q3 = np.percentile(price, 75)
 
         print(f"Count: {count}", flush=True)
-        print(f"Mean: {mean}", flush=True)
+        print(f"Standard Deviation: {std}", flush=True)
         print(f"Median: {median}", flush=True)
         print(f"Min: {min}", flush=True)
         print(f"Max: {max}", flush=True)

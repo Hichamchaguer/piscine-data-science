@@ -46,11 +46,11 @@ def clustering():
         colors = ['#d6d6d6', '#f5f200', 'red', '#f2eaa5', 'green']
 
         plt.figure(figsize=(10,6))
-        # plt.barh(counts.index, counts.values, color=colors)
-        # plt.xlabel('Number of customers')
-        # plt.title('customers segmentation')
-        # plt.savefig('script/customer_segment.png', format='png')
-        # print('segmentation saved as scriptcustomer_segment.png', flush=True)
+        plt.barh(counts.index, counts.values, color=colors)
+        plt.xlabel('Number of customers')
+        plt.title('customers segmentation')
+        plt.savefig('script/customer_segment.png', format='png')
+        print('segmentation saved as scriptcustomer_segment.png', flush=True)
         plt.close()
 
         # Bubble chart

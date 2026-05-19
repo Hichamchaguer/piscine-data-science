@@ -55,6 +55,8 @@ def load():
         print(f"An error occurred: {e}", flush=True)
         return None
 
+# spine 
+# set_tick_params
 
 if __name__ == '__main__':
     load()

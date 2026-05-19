@@ -38,7 +38,7 @@ def freq():
     plt.figure(figsize=(15, 6))
     plt.grid(True, zorder=-1)
     count1 = [row[1] for row in result1]
-    plt.hist(count1, bins=5, edgecolor='k')
+    plt.hist(count1, bins=6, edgecolor='k')
     plt.xlabel('Monetory value in Dollars')
     plt.ylabel('customers')
     # plt.xticks(range(0, 200, 50))
