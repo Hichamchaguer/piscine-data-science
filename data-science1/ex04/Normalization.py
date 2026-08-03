@@ -2,7 +2,8 @@ import pandas as pd
 import matplotlib.pyplot as plt
 
 
-train = pd.read_csv('Train_Knight.csv')
+train = pd.read_csv('Train_knight.csv')
+test = pd.read_csv('Test_knight.csv')
 
 def normalization(df):
     for column in df.columns:

@@ -3,13 +3,15 @@ import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
 
 
-train = pd.read_csv('Train_Knight.csv')
-test = pd.read_csv('Test_Knight.csv')
+train = pd.read_csv('../csv/Train_knight.csv')
+test = pd.read_csv('../csv/Test_knight.csv')
 
 def standarization(df):
     for column in df.columns:
         if column != 'knight':
             df[column] = (df[column] - df[column].mean()) / df[column].std()
+            print(df[column])
+
 
 def visualize(df):
 
@@ -26,6 +28,12 @@ def visualize(df):
     plt.show()
     plt.close()
 
+def print_data(df):
+    print(df.head())
+    print('=' *50)
+    df = standarization(df)
+    print(df.head())
 
 if __name__ == '__main__':
     visualize(train)
+    print_data(train)

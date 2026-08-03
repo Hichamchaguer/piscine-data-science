@@ -1,7 +1,7 @@
 import pandas as pd
 
 
-df = pd.read_csv('Train_Knight.csv')
+df = pd.read_csv('../csv/Train_knight.csv')
 
 # encoding non-numeric data
 

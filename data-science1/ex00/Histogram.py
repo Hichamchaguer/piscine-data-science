@@ -4,8 +4,8 @@ import matplotlib.pyplot as plt
 
 
 
-df_test = pd.read_csv('Test_Knight.csv')
-df_train = pd.read_csv('Train_Knight.csv')
+df_test = pd.read_csv('../csv/Test_knight.csv')
+df_train = pd.read_csv('../csv/Train_knight.csv')
 
 # --------------- Test_Knight -----------------
 
