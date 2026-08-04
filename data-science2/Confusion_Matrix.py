@@ -1,4 +1,40 @@
 import sys
+import matplotlib.pyplot as plt
+import numpy as np
+
+def plot_confusion_matrix(cm, tp, fn, fp, tn):
+
+    fig, ax = plt.subplots(figsize=(6, 6))
+
+    im = ax.imshow(cm, cmap="viridis")
+
+    # Labels
+    ax.set_xticks([0, 1])
+    ax.set_yticks([0, 1])
+
+    ax.set_xticklabels(["Jedi", "Sith"])
+    ax.set_yticklabels(["Jedi", "Sith"])
+
+    ax.set_xlabel("Predicted Label")
+    ax.set_ylabel("True Label")
+    ax.set_title("Confusion Matrix")
+
+    # Write values inside cells
+    for i in range(2):
+        for j in range(2):
+            ax.text(
+                j, i,
+                str(cm[i, j]),
+                ha="center",
+                va="center",
+                color="white",
+                fontsize=18
+            )
+
+    plt.colorbar(im)
+    plt.tight_layout()
+    plt.show()
+
 
 def main():
     if len(sys.argv) != 3:
@@ -68,8 +104,12 @@ def main():
     # Print Confusion Matrix
     max_len = max(len(str(tp)), len(str(fn)), len(str(fp)), len(str(tn)))
     print("Confusion Matrix:\n")
-    print(f"[[{tp:>{max_len}} {fn:>{max_len}}]")
-    print(f" [{fp:>{max_len}} {tn:>{max_len}}]]")
+    arr = np.array([[tp, fn], [fp, tn]])
+    print(arr)
+    plot_confusion_matrix(arr, tp, fn, fp, tn)
+
+
+
 
 if __name__ == "__main__":
     main()
