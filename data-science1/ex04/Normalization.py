@@ -57,13 +57,13 @@ def visualize(df):
 
 
 def main(df):
-    visualize(df)
     df = normalization(df)
     print(df.head())
     print("=" * 50)
     print("normalization")
     print("=" * 50)
     scaler(df)
+    visualize(df)
 
 if __name__ == '__main__':
     main(train)

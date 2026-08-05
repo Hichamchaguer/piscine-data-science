@@ -1,6 +1,6 @@
 import pandas as pd
 
-df = pd.read_csv('Train_knight.csv')
+df = pd.read_csv('../csv/Train_knight.csv')
 
 df = df.sample(frac=1, random_state=42)
 
