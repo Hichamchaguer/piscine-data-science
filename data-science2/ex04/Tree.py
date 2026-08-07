@@ -62,14 +62,14 @@ print("F1-score:", f1)
 test_pred = model.predict(test)
 
 # Save predictions
-with open("Tree.txt", "w") as f:
-    for p in test_pred:
-        f.write(p + "\n")
+# with open("Tree.txt", "w") as f:
+#     for p in test_pred:
+#         f.write(p + "\n")
 
 # ======================
 # Plot tree (only for Decision Tree)
 # ======================
-if model_type == "tree":
-    plt.figure(figsize=(12, 8))
-    plot_tree(model, feature_names=X.columns, class_names=model.classes_, filled=True)
-    plt.show()
+# if model_type == "tree":
+    # plt.figure(figsize=(12, 8))
+    # plot_tree(model, feature_names=X.columns, class_names=model.classes_, filled=True)
+    # plt.show()
