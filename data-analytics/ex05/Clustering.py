@@ -6,7 +6,6 @@ from sklearn.cluster import KMeans
 import pandas as pd
 
 
-
 def clustering():
 
     try:

@@ -8,7 +8,7 @@ DB_HOST = "postgres"
 DB_NAME = "piscineds"
 DB_USER = "hchaguer"
 DB_PASSWORD = "mysecretpassword"
-DB_PORT = 5432
+port = "5432"
 
 # connection function 
 
