@@ -2,7 +2,6 @@ import pandas as pd
 import matplotlib.pyplot as plt
 from sklearn.preprocessing import StandardScaler
 
-
 train = pd.read_csv('../csv/Train_knight.csv')
 test = pd.read_csv('../csv/Test_knight.csv')
 

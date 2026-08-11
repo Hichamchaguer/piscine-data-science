@@ -11,6 +11,6 @@ df['Knight_encoded'] = df['knight'].map({
         'Sith': 0,
 })
 
-correlation = df.corr(numeric_only=True)['Knight_encoded']
-
-print(correlation.sort_values(ascending=False))
+correlation = df.corr(numeric_only=True)['Knight_encoded'] # compute correlation with the encoded 'knight' column
+ 
+print(correlation.sort_values(ascending=False))  

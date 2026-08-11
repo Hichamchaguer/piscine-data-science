@@ -2,8 +2,6 @@ import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
 
-
-
 df_test = pd.read_csv('../csv/Test_knight.csv')
 df_train = pd.read_csv('../csv/Train_knight.csv')
 
