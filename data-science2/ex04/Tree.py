@@ -36,7 +36,7 @@ X_train, X_val, y_train, y_val = train_test_split(
 # Choose model
 # ======================
 if model_type == "tree":
-    model = DecisionTreeClassifier(max_depth=11, random_state=40)
+    model = DecisionTreeClassifier(max_depth=7, random_state=42)
 elif model_type == "forest":
     model = RandomForestClassifier(n_estimators=100, random_state=42)
 else:
@@ -69,7 +69,7 @@ test_pred = model.predict(test)
 # ======================
 # Plot tree (only for Decision Tree)
 # ======================
-if model_type == "tree":
-    plt.figure(figsize=(12, 8))
-    plot_tree(model, feature_names=X.columns, class_names=model.classes_, filled=True)
-    plt.show()
+# if model_type == "tree":
+    # plt.figure(figsize=(12, 8))
+    # plot_tree(model, feature_names=X.columns, class_names=model.classes_, filled=True)
+    # plt.show()
