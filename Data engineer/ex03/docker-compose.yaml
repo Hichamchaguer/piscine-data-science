@@ -52,14 +52,5 @@ services:
     networks:
       - my_network
 
-volumes:
-  pgdata:
-    name: pgdata
-    driver: local
-    driver_opts:
-      type: none
-      device: /Users/hchaguer/data/postgres_data
-      o: bind
-
 networks:
   my_network:
